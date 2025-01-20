@@ -24,7 +24,7 @@
 
 // Função para definir a frequência do buzzer
 
-/*
+
 void set_buzzer_frequency(uint pin, uint frequency) {
      // Obter o slice do PWM associado ao pino
      uint slice_num = pwm_gpio_to_slice_num(pin);
@@ -38,15 +38,15 @@ void set_buzzer_frequency(uint pin, uint frequency) {
      pwm_init(slice_num, &config, true);
      pwm_set_gpio_level(pin, 0); // Inicializa com duty cycle 0 (sem som)
 }
-*/
+
 // Função para tocar o buzzer por uma duração específica
 
-/*void play_buzzer(uint pin, uint frequency, uint duration_ms) {
+void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     set_buzzer_frequency(pin, frequency); // Configura a frequência do buzzer
     pwm_set_gpio_level(pin, 2048); // Define o nível do PWM (50% duty cycle)
     sleep_ms(duration_ms); // Espera pela duração especificada
     pwm_set_gpio_level(pin, 0); // Desliga o buzzer
-}*/
+}
 
 // Redefinição de algumas variáveis globais
 #define UART_ID uart1 
