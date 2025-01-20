@@ -61,7 +61,8 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
 #define botaoB_pin 6
 
 // Função para inicializar a UART e os GPIOs
-/*void inicia () {
+
+void inicia () {
     stdio_init_all(); // Inicializa todas as saídas padrão
     uart_init(UART_ID, BAUD_RATE); // Inicializa a UART com a taxa de baud
     sleep_ms(3000); // Espera 3 segundos
@@ -81,9 +82,9 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     gpio_init(botaoB_pin); // Inicializa o pino do botão B
     gpio_init(botaoA_pin); // Inicializa o pino do botão A
 }
-*/
 
-/*
+
+
 int main() {
     inicia(); // Chama a função de inicialização
 
@@ -145,4 +146,4 @@ int main() {
 
     return 0;
 }
-*/
+
