@@ -61,7 +61,7 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
 #define botaoB_pin 6
 
 // Função para inicializar a UART e os GPIOs
-/*void inicia () {
+void inicia () {
     stdio_init_all(); // Inicializa todas as saídas padrão
     uart_init(UART_ID, BAUD_RATE); // Inicializa a UART com a taxa de baud
     sleep_ms(3000); // Espera 3 segundos
@@ -81,10 +81,8 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     gpio_init(botaoB_pin); // Inicializa o pino do botão B
     gpio_init(botaoA_pin); // Inicializa o pino do botão A
 }
-*/
 
-/*
-int main() {
+void main() {
     inicia(); // Chama a função de inicialização
 
     gpio_set_dir(botaoA_pin, GPIO_IN); // Configura o pino do botão A como entrada
@@ -93,7 +91,7 @@ int main() {
     gpio_set_dir(botaoB_pin, GPIO_IN); // Configura o pino do botão B como entrada
     gpio_pull_up(botaoB_pin); // Ativa o pull-up interno para o botão B
 
-    while (true) {
+    while (1) {
         // Imprime o menu
         printf("\nMenu:\n"); 
         printf("A - Ligar LED Vermelho\n"); 
@@ -113,28 +111,38 @@ int main() {
             gpio_put(green_pin, 0);
             gpio_put(red_pin, 1); // Liga o LED vermelho
             printf("LED RED ON\n");
+            sleep_ms(1500);
+            gpio_put(red_pin, 0);
         } else if (ESCOLHA == 'C') {
             gpio_put(green_pin, 1); // Liga o LED verde
             gpio_put(blue_pin, 0);
             gpio_put(red_pin, 0);
             printf("LED GREEN ON\n");
+            sleep_ms(1500);
+            gpio_put(green_pin, 0);
         } else if (ESCOLHA == 'B') {
             gpio_put(blue_pin, 1); // Liga o LED azul
             gpio_put(green_pin, 0);
             gpio_put(red_pin, 0);
             printf("LED BLUE ON\n");
+            sleep_ms(1500);
+            gpio_put(blue_pin, 0);
         } else if (ESCOLHA == 'D') {
             gpio_put(blue_pin, 1); // Liga todos os LEDs (branco)
             gpio_put(green_pin, 1);
             gpio_put(red_pin, 1);
             printf("LED WHITE ON\n");
+            sleep_ms(1500);
+            gpio_put(blue_pin, 0);
+            gpio_put(green_pin, 0);
+            gpio_put(red_pin, 0);
         } else if (ESCOLHA == '#') {
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
             gpio_put(RED_LED_PIN, 0); // Desliga todos os LEDs
             play_buzzer(BUZZER_PIN, 3350, 2000); // Ativa o buzzer
             printf("BUZZER ON\n");
-            break; // Encerra o loop
+           
         } else {
             gpio_put(blue_pin, 0);
             gpio_put(green_pin, 0);
@@ -143,6 +151,4 @@ int main() {
         }
     }
 
-    return 0;
 }
-*/

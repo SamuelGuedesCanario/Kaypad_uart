@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/keypadUart1.uf2'
+elf = 'build/keypadUart1.elf'
